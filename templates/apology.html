@@ -5,5 +5,12 @@
 {% endblock %}
 
 {% block main %}
-    <img alt="{{ top }}" class="border" src="http://memegen.link/custom/{{ top | urlencode }}/{{ bottom | urlencode }}.jpg?alt=https://i.imgur.com/CsCgN7Ll.png" title="{{ top }}">
+<div class="row justify-content-center">
+    <div class="col-md-6">
+        <img alt="{{ top }}" class="img-fluid img-thumbnail"
+             src="http://memegen.link/custom/{{ top | urlencode }}/{{ bottom | urlencode }}
+             .jpg?alt=https://i.imgur.com/CsCgN7Ll.png"
+             title="{{ top }}">
+    </div>
+</div>
 {% endblock %}
