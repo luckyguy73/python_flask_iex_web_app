@@ -1,0 +1,48 @@
+{% extends "layout.html" %}
+
+{% block title %}
+Dashboard
+{% endblock %}
+
+{% block main %}
+<h2>{{ username }}'s Dashboard</h2>
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th scope="col">Symbol</th>
+            <th scope="col">Name</th>
+            <th scope="col">Shares</th>
+            <th scope="col">Price</th>
+            <th scope="col">Total</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        {% for stock in stocks %}
+        <tr>
+            <td>{{ stock['symbol'] }}</td>
+            <td>{{ stock['company_name'] }}</td>
+            <td>{{ stock['total_shares'] }}</td>
+            <td class="text-right">{{ usd(prices[stock['symbol']]) }}</td>
+            <td class="text-right">{{ usd(prices[stock['symbol']] * stock['total_shares']) }}</td>
+        </tr>
+        {% endfor %}
+
+        <tr>
+            <td>CASH</td>
+            <td>-</td>
+            <td>-</td>
+            <td class="text-right">-</td>
+            <td class="text-right">{{ "${:,.2f}".format(cash) }}</td>
+        </tr>
+
+        <tr>
+            <td>BALANCE</td>
+            <td>-</td>
+            <td>-</td>
+            <td class="text-right">-</td>
+            <td class="text-right">{{ "${:,.2f}".format(total) }}</td>
+        </tr>
+    </tbody>
+</table>
+{% endblock %}

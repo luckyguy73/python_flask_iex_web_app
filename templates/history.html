@@ -1,0 +1,34 @@
+{% extends "layout.html" %}
+
+{% block title %}
+History
+{% endblock %}
+
+{% block main %}
+<h2>{{ username }}'s Transaction History</h2>
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th scope="col">Symbol</th>
+            <th scope="col">Name</th>
+            <th scope="col">Type</th>
+            <th scope="col">Shares</th>
+            <th scope="col">Price</th>
+            <th scope="col">Transaction Timestamp</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        {% for stock in stocks %}
+        <tr>
+            <td>{{ stock['symbol'] }}</td>
+            <td>{{ stock['company_name'] }}</td>
+            <td>{{ stock['type'] }}</td>
+            <td>{{ stock['shares'] }}</td>
+            <td class="text-right">{{ usd(stock['price']) }}</td>
+            <td>{{ stock['transaction_date'] }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

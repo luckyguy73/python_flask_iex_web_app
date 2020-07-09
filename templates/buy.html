@@ -1,0 +1,35 @@
+{% extends 'layout.html' %}
+
+{% block title %}
+Buy
+{% endblock %}
+
+{% block main %}
+<form action="/buy" method="post">
+    <div class="row justify-content-center">
+        <div class="form-group col-md-2">
+            <input type="text" class="form-control" name="symbol" placeholder="Symbol" autocomplete="off" id="buy_symbol">
+        </div>
+    </div>
+
+    <div class="row justify-content-center">
+        <div id="buy_shares-div" class="form-group col"></div>
+    </div>
+
+    <div class="row justify-content-center">
+        <div class="form-group col-md-2">
+            <input type="number" class="form-control" name="shares" placeholder="Shares" min="1">
+        </div>
+    </div>
+
+    <div class="row justify-content-center mt-3">
+        <div class="form-group">
+            <input type="submit" class="btn btn-outline-primary">
+        </div>
+    </div>
+</form>
+{% endblock %}
+
+{% block script %}
+<script src="/static/buy_symbol.js"></script>
+{% endblock %}

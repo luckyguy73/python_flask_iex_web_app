@@ -1,0 +1,26 @@
+{% extends "layout.html" %}
+
+{% block title %}
+Login
+{% endblock %}
+
+{% block main %}
+<form action="/login" method="post">
+    <div class="row justify-content-center">
+        <div class="form-group col-md-4">
+            <input type="text" class="form-control" id="username" name="username" aria-describedby="username"
+                   placeholder="Username" autocomplete="off">
+        </div>
+    </div>
+    <div class="row justify-content-center">
+        <div class="form-group col-md-4">
+            <input type="password" class="form-control" id="password" name="password" placeholder="Password">
+        </div>
+    </div>
+    <div class="row justify-content-center">
+        <div class="form-group">
+            <button type="submit" class="form-control btn btn-outline-primary">Submit</button>
+        </div>
+    </div>
+</form>
+{% endblock %}

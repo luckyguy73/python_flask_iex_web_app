@@ -1,0 +1,40 @@
+{% extends "layout.html" %}
+
+{% block title %}
+Sell
+{% endblock %}
+
+{% block main %}
+<form action="/sell" method="post">
+    <div class="row justify-content-center">
+        <div class="form-group col-md-2">
+            <select class="form-control" name="symbol" id="sell_symbol">
+                <option value="" selected>Choose...</option>
+                {% for stock in stocks %}
+                <option>{{ stock['symbol'] }}</option>
+                {% endfor %}
+            </select>
+        </div>
+    </div>
+
+    <div class="row justify-content-center">
+        <div id="sell_shares-div" class="form-group col"></div>
+    </div>
+
+    <div class="row justify-content-center">
+        <div class="form-group col-md-2">
+            <input class="form-control" type="number" name="shares" placeholder="Shares" min="1">
+        </div>
+    </div>
+
+    <div class="row justify-content-center mt-3">
+        <div class="form-group">
+            <input class="form-control btn btn-outline-primary" type="submit">
+        </div>
+    </div>
+</form>
+{% endblock %}
+
+{% block script %}
+<script src="/static/sell_symbol.js"></script>
+{% endblock %}
