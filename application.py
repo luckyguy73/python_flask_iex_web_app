@@ -141,9 +141,9 @@ def buy_symbol():
 @login_required
 def sell_symbol():
     symbol = request.json['symbol']
-    row = db.execute("SELECT sum(shares) as shares FROM user_transactions WHERE symbol = ? "
+    row = db.execute("SELECT sum(shares) as shares, company_name FROM user_transactions WHERE symbol = ? "
                      "and user_id = ?", symbol, session['user_id'])
-    data = {'shares': row[0]['shares']}
+    data = {'shares': row[0]['shares'], 'name': row[0]['company_name']}
     if not data['shares']:
         data['shares'] = 0
 

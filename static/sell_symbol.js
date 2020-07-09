@@ -15,7 +15,7 @@ sell_symbol_input.addEventListener('change', () => {
         .then(r => r.json())
         .then(data => {
             console.log(data);
-            sell_div.innerHTML = `<small class="text-muted">You can sell up to ${data['shares']} shares of ${symbol}</small>`;
+            sell_div.innerHTML = `<small class="text-muted">You can sell up to ${data['shares']} shares of ${data['name']}</small>`;
         })
         .catch(error => {
             console.log(error);
